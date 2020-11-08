@@ -22,3 +22,9 @@ output: html_document
 [Point 9](sound_files/point_9.mp3)
 
 [Point 10](sound_files/point_10.mp3)
+
+
+# Template excel file 
+[Datatable (.xlsx)](files/template_datatable.xlsx)
+
+[Datatable (.csv)](files/template_datatable.csv)
