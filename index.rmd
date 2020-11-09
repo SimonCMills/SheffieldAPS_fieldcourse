@@ -3,28 +3,50 @@ title: "Sound files"
 output: html_document
 ---
 
-[Point 1](sound_files/point_1.mp3)
+# Forest 
 
-[Point 2](sound_files/point_2.mp3)
+![](IMG_20190703_062516_format.jpg)
 
-[Point 3](sound_files/point_3.mp3)
+![Point 1](sound_files/point_1.mp3)
 
-[Point 4](sound_files/point_4.mp3)
+![Point 2](sound_files/point_2.mp3)
 
-[Point 5](sound_files/point_5.mp3)
+![Point 3](sound_files/point_3.mp3)
 
-[Point 6](sound_files/point_6.mp3)
+![Point 4](sound_files/point_4.mp3)
 
-[Point 7](sound_files/point_7.mp3)
+![Point 5](sound_files/point_5.mp3)
 
-[Point 8](sound_files/point_8.mp3)
 
-[Point 9](sound_files/point_9.mp3)
+# Pasture 
 
-[Point 10](sound_files/point_10.mp3)
+![](pasture_format.jpg)
+
+![Point 6](sound_files/point_6.mp3)
+
+![Point 7](sound_files/point_7.mp3)
+
+![Point 8](sound_files/point_8.mp3)
+
+![Point 9](sound_files/point_9.mp3)
+
+![Point 10](sound_files/point_10.mp3)
 
 
 # Template excel file 
 [Datatable (.xlsx)](files/template_datatable.xlsx)
 
 [Datatable (.csv)](files/template_datatable.csv)
+
+# R scripts
+Scripts to read in files, and help format them. You will then add your code to plot these data at the bottom. 
+
+If you have __dplyr__ or __tidyverse__ (which contains dplyr) installed, you should use the "_dplyr" version, which should make more sense to you as it is what you will have used in your R course. If you have time, it would be worth quickly installing this package, using ```install.packages("dplyr")```. If you have __dplyr__ installed, download and use:
+
+[format_and_plot_dplyr.R](format_and_plot_dplyr.R)
+
+If you don't have it and don't want to install it, then you can use this (which does the same thing, but in base R):
+
+[format_and_plot.R](format_and_plot.R)
+
+__Note:__ Both scripts make use of __ggplot2__. You don't have to use this, but it will make your life a lot easier if you do. If you don't already have it, you can use ```install.packages("ggplot2")``` to install it. 
