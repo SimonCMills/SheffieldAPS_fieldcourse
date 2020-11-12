@@ -1,6 +1,8 @@
 ---
 title: "APS278 practical"
-output: html_document
+output: 
+    html_document:
+        number_sections: true
 ---
 
 <style type="text/css">
@@ -11,20 +13,25 @@ output: html_document
 
 -----
 
-# Template excel file 
-Below is a template data table for you to populate as you listen. You can download it either as a csv or an excel file (they are the same, but the csv version has obviously dropped the excel-specific formatting). 
+# Getting set up
 
-__Note:__ You don't need to edit the morphospecies column (there are more rows than there are species on the recordings). It is important that you only put numbers in the point columns. If there is no species on a particular point, just leave the cell empty. Try to avoid accidentally putting spaces (" ") in cells you aren't using, and don't add any additional columns. You can put whatever you want in the notes column (it might help, for example, to record some notes about the sound of a particular morphospecies, e.g. "high te-te-te-te", or "descending series of notes").
+## Download the zip file
+[This zip file](practical_zip.zip) contains all the code and files that you need for this practical, so go ahead and download it now. 
 
-[Datatable (.xlsx)](files/template_datatable.xlsx)
+## Open the template datatable
+In the ```files``` directory you will fine a ```template_datatable``` file, both as a ```.csv``` and a ```.xlsx```. Open up whichever one you feel like (they are the same, but the csv version has obviously dropped the excel-specific formatting). 
 
-[Datatable (.csv)](files/template_datatable.csv)
+__Important:__ You need to try and make sure that you don't alter the formatting of this datafile. There are 11 columns for you to enter information into, and 45 rows (not including the header). There are more rows than there are species in the recordings, so you don't need to add any rows. You also don't need to edit the morphospecies column, nor should you remove any rows. It is important that you only put numbers in the point columns. If there isn't a particular species on a particular point, just leave the cell empty. Try to avoid accidentally putting spaces (" ") in cells you aren't using, and don't add any additional columns. You can put whatever you want in the notes column (it might help, for example, to record some notes about the sound of a particular morphospecies, e.g. "high te-te-te-te", or "descending series of notes"). __If you do accidentally do any of these things, you might really struggle when it comes to reading the data into R.__
 
-You can call it whatever you want, but you need to save it somewhere that you can find, and in the code provided it is read in as a csv. (you can read xlsx files into R directly, but it requires installing additional packages, e.g. xlsx)
+## Saving your completed datatable
+When we have come to the end of the listening section of this practical, you need to save your completed datatable as ```completed_datatable.csv``` (note that you have to save it as a csv), in the ```files``` directory (the same place you read the template version in from). You won't be able to read it in if you don't do this.
 
 -----
 
 # Sound files
+
+You can listen to the soundfiles here directly, but if you are struggling to play them for some reason, they are also provided in the zip file, in the ```sound_files``` directory.
+
 ## Forest 
 
 ![](IMG_20190703_062516_format.jpg)
@@ -61,46 +68,51 @@ You can call it whatever you want, but you need to save it somewhere that you ca
 # Analysing and plotting the data
 We are going to run R remotely on the University of Sheffield server. I'm told you should have had plenty of practice doing this, but if you need any assistance there will be a TA to help. We are going to rely on two packages that you should have already used quite a bit: __dplyr__ and __ggplot2__. If you haven't already got these, you will need to install them using ```install.packages("dplyr")``` or ```install.packages("ggplot2")```. 
 
-Below, I attach a zip document that contains the scripts for you to read in the files you will need and help format them before plotting. The script that you will need to open is ```format_and_plot.R```. This script will:
+You need to open the project ```APS278_practical.Rproj``` (in the zip file you have already downloaded), which should open the ```plotting_script.R``` file (if not, go ahead and open it yourself). 
 
-(1) read in the ```.csv``` file that you are going to generate as you listen to the recordings. 
-(2) reformat this table so that it is in a "long-format" that will be useful for plotting and generating summary statistics
-(3) calculate summary statistics and create plots
+It should hopefully be pretty self-explanatory. The main problem will be if you have not saved your completed data table as ```completed_datatable.csv```, and/or you have not saved it into the ```files``` directory (where you read ```template_datatable``` from). See script for further debugging tips if you are struggling to read your file in. 
 
-In step (1) you will need to change the filepath to wherever you have saved your csv. After reading it in, it is important that you run the ```View()``` step. If the dataframe there doesn't look like the one you have just saved then you have a problem and will need to go back and make changes to the file you have created. 
+Run the code that is already entered and this run some code to format your data, and you can check that your data were read in properly, and inspect the objects that were created for you. 
 
-__Note:__ If you are getting errors during the reading in step, then you have probably entered information outside of the cells provided (columns: point_1 to notes, rows 1 to 46). You will need to go back and fix this by deleting rows/columns you have accidentally entered information into. 
 
-Step (2) is done for you, and your main job is step (3). There are 4 main tasks here:
+## Your task
 
-- calculate the average point-level species richness: on average are there more species in forest or pasture?
-- plot the point-level species richness. You only have 5 points in each habitat, so a dot plot might be the best way to do this
-- calculate the total species richness in each habitat type
-- plot the rarefaction curve for species richness
+(1) calculate the average point-level species richness: on average are there more species in forest or pasture?
+    - you already have the summary in ```data_summary```: you want to ```group_by()``` and ```summarise``` to get an average for each habitat type
+(2) plot the point-level species richness. You only have 5 points in each habitat, so a dot plot or jittered points might be the best way to do this
+    - ```geom_jitter()``` or ```geom_dotplot()``` will be useful
+(3) calculate the total species richness in each habitat type
+    - ```data_longformat``` contains all the information you need for this. 
+    - You need the number of unique species per habitat. ```unique(x)``` will give you a vector of the unique values in vector ```x```, and ```length(unique(x))``` will give you the number of unique values in ```x```.
+(4) plot the rarefaction curve for species richness
+    - See below for what exactly a rarefaction curve is trying to do. You just need to plot the outputs given to you in the ```pred_both``` tibble. 
+    - ```geom_ribbon()``` takes three main ```aes()``` arguments, ```ymin```, ```ymax```, and ```x```. You will probably also want to provide it a ```fill``` argument so that it plots different ribbons for each habitat type! 
 
-There are some tips provided to help you with each of these, and you can ask a TA for help. 
+__Note:__ It might take you a bit of playing around to figure out how to produce some of these plots/summary statistics. If you are really stuck with something, ask a TA for help. If you aren't sure about what arguments you need to provide to a plotting function, you can also check the documentation by using ```?geom_jitter```. The Aesthetics section tells you what arguments you need to provide to it. 
 
-[format_and_plot_dplyr.R](format_and_plot_dplyr.R)
-
------
-
-# Example figures
+## Example figures
 These are the plots that I have drawn from my listening to these points. Note that yours will probably look different, depending on how well you have been able to identify species on the recordings. Try to recreate them as best as you can (you can edit the format as you like, pick a colour scheme, etc.)
 
 Note that I have removed the labels on the y-axis as it gives the game away!
 
-## Point-level species richness:
+### Point-level species richness:
 <center>
 ![](species_richness_point.png){ width=70% }
 </center>
-## Rarefaction curves for each habitat:
+### Rarefaction curves for each habitat:
 ![](rarefaction_curve.png)
 
-What is the shaded area? And why the difference between these two figures? The shaded area indicates the variation in average species richnesses that we would expect to see by chance. This is also called the sampling variation in our expected species richness. If we can calculate this for each habitat type (left-hand figure), why have I also produced a plot where this range is only presented for the forest? 
+__What is a rarefaction curve?__ the rarefaction curve is estimating the species richness you would expect to see in a random sample of $m$ individuals in a particular habitat. In habitats where there are lots of individuals, but very few species, we expect to see a curve that is very flat (as each additional individual is likely to be from a species we have already seen). At the other extreme, if every new individual is a new species, we expect to see a 1:1 line as the number of species increases in lockstep with the number of individuals. At some point we expect all curves to plateau, as there has to be a finite number of species in any given community. The closer we are to a plateau, the closer we are to having exhaustively sampled the community. Or that's the idea, at least. 
 
-If our question is "is the species richness lower/higher in forest than pasture", we want to know whether we can statistically differentiate between pasture and forest communities. To put this another way: could the observed richness in pasture plausibly have been generated through random sampling of the forest community.
+__Why do we use them?__ We will rarely have observed exactly the same number of individuals in different habitat types, and we need a way of making a fair comparison when you have more individuals in one sample than another. The more individuals you have observed, the more chance you have had to spot a new species, so by chance alone you expect to see more species with increasing $m$. While it seems obvious that you therefore can't make a fair comparison between two habitats where you have seen varying number of individuals, this is exactly what some ecologists were doing prior to around 1960, until a few people developed the statistical methodology to create this fair comparison. Note that here we have number of individuals on the x-axis, but in other contexts we might consider adjusting for varying surveying effort in other ways, for example by number of points visited, or length of time surveyed, etc. 
+
+__What is the shaded area? And why the difference between these two figures?__ The shaded area indicates the variation in average species richnesses that we would expect to see by chance. This is also called the sampling variation in the expected species richness. If we can calculate this for each habitat type (left-hand figure), why have I also produced a plot where this range is only presented for the forest? 
+
+If our question is "is the species richness lower/higher in forest than pasture", we want to know whether we can statistically differentiate between pasture and forest communities. To put this another way: could the observed richness in pasture plausibly have been generated through random sampling of the forest community?
 
 In forest we observed a lot more species (or at least I did!), so the question is: if we had observed the same number of individuals in forest as in pasture, do we observe more/fewer species in pasture than we would expect by chance? To do this, we can treat our species richness in pasture as known- it's simply what we observed. We can then compare this value to the range of values we would expect to observe through simple sampling variation in forest. If the actual value that we observed lies a very long way away from the range of values that ought to arise through sampling variation then we can conclude that it is very unlikely that our two communities are the same. 
+
+__Important caveats:__
 
 Note that as with any statistical model, the predictions that we make are conditional on the assumptions of the statistical model that we use. So while here we would conclude that the two communities are different (and that there are fewer species in pasture than in forest), this conclusion is conditional on the specific details of this particular model. 
 
