@@ -3,6 +3,14 @@ title: "APS278 practical"
 output: html_document
 ---
 
+<style type="text/css">
+  body{
+  font-size: 14pt;
+}
+</style>
+
+-----
+
 # Template excel file 
 Below is a template data table for you to populate as you listen. You can download it either as a csv or an excel file (they are the same, but the csv version has obviously dropped the excel-specific formatting). 
 
@@ -13,6 +21,8 @@ __Note:__ You don't need to edit the morphospecies column (there are more rows t
 [Datatable (.csv)](files/template_datatable.csv)
 
 You can call it whatever you want, but you need to save it somewhere that you can find, and in the code provided it is read in as a csv. (you can read xlsx files into R directly, but it requires installing additional packages, e.g. xlsx)
+
+-----
 
 # Sound files
 ## Forest 
@@ -46,6 +56,7 @@ You can call it whatever you want, but you need to save it somewhere that you ca
 
 
 
+-----
 
 # Analysing and plotting the data
 We are going to run R remotely on the University of Sheffield server. I'm told you should have had plenty of practice doing this, but if you need any assistance there will be a TA to help. We are going to rely on two packages that you should have already used quite a bit: __dplyr__ and __ggplot2__. If you haven't already got these, you will need to install them using ```install.packages("dplyr")``` or ```install.packages("ggplot2")```. 
@@ -71,15 +82,17 @@ There are some tips provided to help you with each of these, and you can ask a T
 
 [format_and_plot_dplyr.R](format_and_plot_dplyr.R)
 
+-----
 
-# Example plots
+# Example figures
 These are the plots that I have drawn from my listening to these points. Note that yours will probably look different, depending on how well you have been able to identify species on the recordings. Try to recreate them as best as you can (you can edit the format as you like, pick a colour scheme, etc.)
 
 Note that I have removed the labels on the y-axis as it gives the game away!
 
 ## Point-level species richness:
-![](species_richness_point.png)
-
+<center>
+![](species_richness_point.png){ width=70% }
+</center>
 ## Rarefaction curves for each habitat:
 ![](rarefaction_curve.png)
 
