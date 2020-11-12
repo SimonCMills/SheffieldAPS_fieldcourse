@@ -61,8 +61,6 @@ You can listen to the soundfiles here directly, but if you are struggling to pla
 
 ![Point 10](sound_files/point_10.mp3)
 
-
-
 -----
 
 # Analysing and plotting the data
