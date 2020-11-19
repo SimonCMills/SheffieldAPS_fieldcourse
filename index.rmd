@@ -32,6 +32,9 @@ When we have come to the end of the listening section of this practical, you nee
 
 You can listen to the soundfiles here directly, but if you are struggling to play them for some reason, they are also provided in the zip file, in the ```sound_files``` directory.
 
+## Practice
+![](practical_my_version/sound_files/practice.mp3)
+
 ## Forest 
 
 ![](IMG_20190703_062516_format.jpg)
