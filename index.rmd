@@ -1,5 +1,5 @@
 ---
-title: "APS278 practical"
+title: "APS278 virtual field course"
 output: 
     html_document:
         number_sections: true
@@ -12,6 +12,7 @@ output:
 </style>
 
 -----
+This document contains all the information required to complete the virtual field course. In this course we will carry out a series of virtual point counts using real sound recordings collected from point counts completed high in the Colombian Andes. At each point we will record the bird species that we think are present, and then, once we have completed all the point counts, we will compare how communities vary between pasture and forest points. Because you are unlikely to be able to identify Colombian birds from their song, rather than recording real species, we will instead record "morphospecies", which we can think of as distinct vocalisations that we think are likely to be made by different species. If we were doing this by eye, rather than by sound, it might be something like "I saw a medium-sized red bird with a heavy beak, a blue and black bird with some yellow on the wing, and a large bright green bird with a big bill". Without knowing the true species these represent, we can still use these descriptions to record them each time they crop up. Here we will do the same, but with the vocalisations (this will start to make more sense as we work through the recordings).
 
 # Getting set up
 
@@ -75,7 +76,7 @@ You can listen to the soundfiles here directly, but if you are struggling to pla
 -----
 
 # Analysing and plotting the data
-We are going to run R remotely on the University of Sheffield server. I'm told you should have had plenty of practice doing this, but if you need any assistance there will be a TA to help. We are going to rely on two packages that you should have already used quite a bit: __dplyr__ and __ggplot2__. If you haven't already got these, you will need to install them using ```install.packages("dplyr")``` or ```install.packages("ggplot2")```. 
+We are now going to analyse the data: if you require any assistance as we work through this, just as a TA for help (don't suffer in silence!). We are going to rely on two packages that you should have already used quite a bit: __dplyr__ and __ggplot2__. If you haven't already got these, you will need to install them using ```install.packages("dplyr")``` or ```install.packages("ggplot2")```. 
 
 You need to open the project ```APS278_practical.Rproj``` (in the zip file you have already downloaded), which should open the ```plotting_script.R``` file (if not, go ahead and open it yourself). 
 
