@@ -21,10 +21,18 @@ output:
 ## Open the template datatable
 In the ```files``` directory you will fine a ```template_datatable``` file, both as a ```.csv``` and a ```.xlsx```. Open up whichever one you feel like (they are the same, but the csv version has obviously dropped the excel-specific formatting). 
 
-__Important:__ You need to try and make sure that you don't alter the formatting of this datafile. There are 11 columns for you to enter information into, and 45 rows (not including the header). There are more rows than there are species in the recordings, so you don't need to add any rows. You also don't need to edit the morphospecies column, nor should you remove any rows. It is important that you only put numbers in the point columns. If there isn't a particular species on a particular point, just leave the cell empty. Try to avoid accidentally putting spaces (" ") in cells you aren't using, and don't add any additional columns. You can put whatever you want in the notes column (it might help, for example, to record some notes about the sound of a particular morphospecies, e.g. "high te-te-te-te", or "descending series of notes"). __If you do accidentally do any of these things, you might really struggle when it comes to reading the data into R.__
+<div class="alert alert-danger">
+__Important:__ You need to make sure that you don't alter the formatting of this datafile. There are 11 columns for you to enter information into, and 45 rows (not including the header). There are more rows than there are species in the recordings, so you don't need to add any rows. You also don't need to edit the morphospecies column, nor should you remove any rows. It is important that you only put numbers in the point columns. If there isn't a particular species on a particular point, just leave the cell empty. Try to avoid accidentally putting spaces (" ") in cells you aren't using, and don't add any additional columns. You can put whatever you want in the notes column (it might help, for example, to record some notes about the sound of a particular morphospecies, e.g. "high te-te-te-te", or "descending series of notes"). __If you do accidentally do any of these things, you might really struggle when it comes to reading the data into R.__
+</div>
+
 
 ## Saving your completed datatable
-When we have come to the end of the listening section of this practical, you need to save your completed datatable as ```completed_datatable.csv``` (note that you have to save it as a csv), in the ```files``` directory (the same place you read the template version in from). You won't be able to read it in if you don't do this.
+When we have come to the end of the listening section of this practical, you need to save your completed datatable as ```completed_datatable.csv```, in the ```files``` directory (the same place you read the template version in from). Note that you have to save it as a .csv file, with the correct name and in the correct location: you won't be able to read it in if you don't do this. To save as a .csv, click 'Save as', navigate to the ```files``` directory, and in the 'Save as type` option, scroll down to 'CSV (Comma delimited) (*.csv)'. 
+
+<div class="alert alert-danger">
+  __Important:__ If you aren't sure how to save the file correctly, just ask a demonstrator. It can be quite tricky to debug your code if you go off-piste at this stage! 
+</div>
+  
 
 -----
 
@@ -33,7 +41,7 @@ When we have come to the end of the listening section of this practical, you nee
 You can listen to the soundfiles here directly, but if you are struggling to play them for some reason, they are also provided in the zip file, in the ```sound_files``` directory.
 
 ## Practice
-![](practical_my_version/sound_files/practice.mp3)
+![](sound_files/practice.mp3)
 
 ## Forest 
 
