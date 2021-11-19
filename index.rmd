@@ -18,7 +18,7 @@ This document contains all the information required to complete the virtual fiel
 
 ## Download the zip file
 [This zip file](practical.zip) contains all the code and files that you need for this practical, so go ahead and download it now. 
-The `practical_zip.zip` file you have just downloaded is a `.zip` file, which is just a way of compressing all the data to create a file with a smaller filesize. Before doing anything else, we need to first unzip it to retain the original files.  If you right click on the `practical.zip` that you have downloaded, you will have a list of options, and you need to select `Extract all`. By default it will extract all the files to the directory that the zip file is in: this is fine, but if you would like to save the files somewhere in particular, you can also specify a different directory at this stage. When it has done this you should be able to see a practical_zip folder that, unlike the zipped version, no longer has a zip across the thumbnail. 
+The `practical.zip` file you have just downloaded is a `.zip` file, which is just a way of compressing all the data to create a file with a smaller filesize. Before doing anything else, we need to first unzip it to retain the original files.  If you right click on the `practical.zip` that you have downloaded, you will have a list of options, and you need to select 'Extract all'. By default it will extract all the files to the directory that the zip file is in: this is fine, but if you would like to save the files somewhere in particular, you can also specify a different directory at this stage. When it has done this you should be able to see a practical_zip folder that, unlike the zipped version, no longer has a zip across the thumbnail. 
 
 <div class="alert alert-danger">
 __Important:__ Make sure you do the unzipping above: you will have problems down the line otherwise. If you aren't sure, ask!
@@ -81,7 +81,7 @@ You can listen to the soundfiles here directly, but if you are struggling to pla
 -----
 
 # Analysing and plotting the data
-We are now going to analyse the data: if you require any assistance as we work through this, just as a TA for help (don't suffer in silence!). We are going to rely on two packages that you should have already used quite a bit: __dplyr__ and __ggplot2__. If you haven't already got these, you will need to install them using ```install.packages("dplyr")``` or ```install.packages("ggplot2")```. 
+We are now going to analyse the data: if you require any assistance as we work through this, just ask a TA for help (don't suffer in silence!). We are going to rely on two packages that you should have already used quite a bit: __dplyr__ and __ggplot2__. If you haven't already got these, you will need to install them using ```install.packages("dplyr")``` or ```install.packages("ggplot2")```. 
 
 You need to open the project ```APS278_practical.Rproj``` (in the zip file you have already downloaded). You can either navigate to the directory and double click on the project there, or you can open Rstudio and then go `File>Open Project` and then find the project directory and select the project. Having done that the ```plotting_script.R``` file should open automatically, but if it doesn't just go ahead and open it yourself). 
 
